@@ -24,7 +24,7 @@ namespace backend_app.Controllers
                 {
                     var jsonResponse = myWebClient.GetAsync($"https://i.instagram.com/api/v1/users/web_profile_info/?username={userName}").Result;
                     result = jsonResponse.Content.ReadAsStringAsync().Result;
-                    //var temp = JsonConvert.DeserializeObject<object>(result);
+                    var temp = JsonConvert.DeserializeObject<object>(result);
                 }
 
             }

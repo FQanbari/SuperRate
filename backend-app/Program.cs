@@ -17,7 +17,7 @@ app.UseSpa(builder =>
 {
     if (app.Environment.IsDevelopment())
     {
-        builder.UseProxyToSpaDevelopmentServer("http://localhost:8081");
+        builder.UseProxyToSpaDevelopmentServer("http://localhost:8082");
     }
 });
 
