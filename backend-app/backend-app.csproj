@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\img\avatar\**" />
+    <Content Remove="wwwroot\img\avatar\**" />
+    <EmbeddedResource Remove="wwwroot\img\avatar\**" />
+    <None Remove="wwwroot\img\avatar\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.6" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />

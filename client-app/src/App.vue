@@ -22,5 +22,7 @@ export default {
 html{
   background-color: #d4e3ca;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-image: url('./assets/backgfound-img-blure.jpg');
+  background-size: contain;
 }
 </style>

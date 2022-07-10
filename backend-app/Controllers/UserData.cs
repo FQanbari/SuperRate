@@ -12,6 +12,13 @@ namespace backend_app.Controllers
     [ApiController]
     public class UserData : ControllerBase
     {
+        private IHostEnvironment _env;
+
+        public UserData(IHostEnvironment env)
+        {
+            _env = env;
+        }
+        
 
         [HttpGet("UserInfo/{userName}")]
         public JsonResult UserInfo(string userName)
@@ -69,6 +76,9 @@ namespace backend_app.Controllers
         {
             string result;
             Image img;
+            var webRoot = _env.ContentRootPath;
+            var dir = Path.Combine(webRoot, @"wwwroot\img\avatar\");
+            var urlImg = @"/img/avatar/" + $"{param.UserName}.Jpeg";
             try
             {
                 var url = Uri.UnescapeDataString(param.UrlImage);
@@ -76,10 +86,13 @@ namespace backend_app.Controllers
                 {
                     var jsonResponse = myWebClient.GetAsync(url).Result;
                     var stream = jsonResponse.Content.ReadAsStream();
-
                     img = Image.FromStream(stream);
 
-                    img.Save(@"..\client-app\src\assets\avatar\" + $"{param.UserName}.Jpeg", ImageFormat.Jpeg);
+                    if (!Directory.Exists(dir))
+                    {
+                        Directory.CreateDirectory(dir);
+                    }
+                    img.Save(dir + $"{param.UserName}.Jpeg", ImageFormat.Jpeg);
                     //var temp = JsonConvert.DeserializeObject<object>(result);
                     //D:\Projects\EngagementRate1\EngagementRate\EngagementRate.Core\Controllers\
                 }
@@ -89,7 +102,7 @@ namespace backend_app.Controllers
             {
                 throw ex;
             }
-            return new JsonResult(true);
+            return new JsonResult(urlImg);
         }
         private static HttpClient Factor(string url)
         {

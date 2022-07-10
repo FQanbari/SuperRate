@@ -1,7 +1,7 @@
 using Newtonsoft.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddSpaStaticFiles(options => { options.RootPath = "wwwroot"; });
+builder.Services.AddSpaStaticFiles(options => { options.RootPath = "wwwroot/client-output"; });
 builder.Services.AddControllers();
 //Json Serializer
 builder.Services.AddControllersWithViews().AddNewtonsoftJson(options =>

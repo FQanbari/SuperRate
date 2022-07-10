@@ -11,24 +11,22 @@
             </div>
         </div>
     </div>
-    <div class="user__notFound" v-if="notFound">
+    <div class="user__notFound" v-if="notFound && !loading">
         <span>User Not Found</span>
     </div>
+    <div class="user__loading" v-if="loading">
+        <img src="../assets/HopeWell.gif" />
+    </div>
     <div class="user">
-
-        <div class="user__loading" v-if="loading">
-            <img src="../assets/Pin-on-UI-UX.gif" />
-        </div>
-        <div v-show="user.username" v-if="!loading">
+        <div v-show="user.username" v-if="!loading" :class="user.username ? 'user__bc--style' : ''">
             <div class="user__info">
-                <img class="user__avatar" v-bind:src="'../assets/avatar/' + user.username + '.jpeg'" />
+                <img class="user__avatar" v-bind:src="user.profileImage" />
                 <div class="user__info-bio">
                     <div class="user__info-item">{{ user.username }}</div>
                     <div class="user__info-item">{{ user.full_name }}</div>
                     <div class="user__info-item user__info--txt">{{ user.biography }}</div>
                 </div>
             </div>
-            <button @click="getUserPosts(user.posts_Count)"></button>
             <div class="user__data">
                 <div class="user__data-item">
                     <div class="user__data-item user__item--h">
@@ -73,8 +71,8 @@ import { defineComponent } from 'vue';
 import axios from 'axios'
 let base_url = window.location.href;
 const variables = {
-    API_URL: base_url + '/api',
-    PHOTO_URL: base_url + '/photo',
+    API_URL: base_url + 'api',
+    PHOTO_URL: base_url + 'photo',
     INASTAGRAM_API_URL: 'https://i.instagram.com/api/v1/'
 }
 let _user_posts = [];
@@ -117,7 +115,7 @@ export default defineComponent({
 
                 _this.user.username = instagramUserData.username;
                 _this.user.Id = instagramUserData.id;
-
+                //_this.user.profileImage = require('../assets/avatar/' + _this.user.username + '.jpeg');
 
                 _this.init_end_cursor = instagramUserData.edge_owner_to_timeline_media.page_info.end_cursor;
                 _this.init_has_next_page = instagramUserData.edge_owner_to_timeline_media.page_info.has_next_page;
@@ -131,7 +129,10 @@ export default defineComponent({
                         }
                         _this.loading = false;
                     });
-                    _this.user.profileImage = _this.GetAvatar(instagramUserData.profile_pic_url, instagramUserData.username);
+                    _this.GetAvatar(instagramUserData.profile_pic_url, instagramUserData.username).then((p) => {
+                        _this.user.profileImage = p;
+                        console.log(p);
+                    });
                 })
             });
 
@@ -381,7 +382,7 @@ export default defineComponent({
             return new Promise(resolve => {
                 axios.post(url, param)
                     .then(response => {
-                        resolve(response.data.data.user);
+                        resolve(response.data);
                     })
                     .catch(error => {
                         console.log(error.toString());
@@ -434,7 +435,7 @@ export default defineComponent({
 }
 
 .main {
-    margin-top: 30vh;
+    margin-top: 20vh;
 }
 
 .inputs {
@@ -482,28 +483,37 @@ input[type="text"].input:active {
     margin-left: auto;
     max-width: 500px;
     margin-top: 50px;
-    height: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 16px;
+    margin-bottom: 32px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.user__bc--style {
+    background-color: #ffff;
+    box-shadow: 0px 1px 12px 1px #75604e;
+    padding: 16px;
+    border-radius: 10px;
 }
 
 .user__loading {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .user__notFound {
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    font-size: 40px;
-    margin-top: 50px;
+    font-size: 50px;
     color: #9f5f46;
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 900;
 }
 
 .user__avatar {
@@ -545,6 +555,7 @@ input[type="text"].input:active {
     align-items: center;
     margin: 10px;
     justify-content: space-between;
+    text-align: center;
 }
 
 .user__item--h {
