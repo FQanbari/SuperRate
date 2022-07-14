@@ -27,6 +27,10 @@
                     <div class="user__info-item user__info--txt">{{ user.biography }}</div>
                 </div>
             </div>
+            <div class="user__ER">
+                <i class=" fa-heart"></i>
+                <div><span>Engagement Rate:</span><span>{{ user_posts.engagement_rate }}%</span></div>
+            </div>
             <div class="user__data">
                 <div class="user__data-item">
                     <div class="user__data-item user__item--h">
@@ -120,15 +124,21 @@ export default defineComponent({
                 _this.init_end_cursor = instagramUserData.edge_owner_to_timeline_media.page_info.end_cursor;
                 _this.init_has_next_page = instagramUserData.edge_owner_to_timeline_media.page_info.has_next_page;
                 _this.ProcessPostsArray(instagramUserData.edge_owner_to_timeline_media.edges).then(function () {
-                    _this.getUserPosts(instagramUserData.edge_owner_to_timeline_media.count).then((post) => {
-                        if (post.length == _this.user.posts_Count) {
-                            _user_posts.avg_likes = (_user_posts.sum_likes / _this.user.posts_Count) | 0;
-                            _user_posts.avg_comments = (_user_posts.sum_comments / _this.user.posts_Count) | 0;
-                            _user_posts.avg_view = (_user_posts.sum_video_view / _user_posts.video_count) | 0;
-                            _this.user_posts = _user_posts;
-                        }
-                        _this.loading = false;
-                    });
+                    // _this.getUserPosts(instagramUserData.edge_owner_to_timeline_media.count).then((post) => {
+                    //     if (post.length == _this.user.posts_Count) {
+                    //         _user_posts.avg_likes = (_user_posts.sum_likes / _this.user.posts_Count) | 0;
+                    //         _user_posts.avg_comments = (_user_posts.sum_comments / _this.user.posts_Count) | 0;
+                    //         _user_posts.avg_view = (_user_posts.sum_video_view / _user_posts.video_count) | 0;
+                    //         _this.user_posts = _user_posts;
+                    //     }
+                    //     _this.loading = false;
+                    // });
+                    _user_posts.avg_likes = (_user_posts.sum_likes / 12) | 0;
+                    _user_posts.avg_comments = (_user_posts.sum_comments / 12) | 0;
+                    _user_posts.avg_view = (_user_posts.sum_video_view / _user_posts.video_count) | 0;
+                    _user_posts.engagement_rate = ((_user_posts.sum_likes + _user_posts.sum_comments) / _this.user.follower).toFixed(2);
+                    _this.user_posts = _user_posts;
+                    _this.loading = false;
                     _this.GetAvatar(instagramUserData.profile_pic_url, instagramUserData.username).then((p) => {
                         _this.user.profileImage = p;
                         console.log(p);

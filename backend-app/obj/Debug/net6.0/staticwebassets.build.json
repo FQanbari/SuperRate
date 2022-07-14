@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EMQyzBDcL4F+b71KX94nCGXakUGBTY6YlT9CSiP5oJE=",
+  "Hash": "o1+Mr1ohFH1dbgXgp5AoW0RypO52KLgAABGDNCZyMpg=",
   "Source": "backend-app",
   "BasePath": "_content/backend-app",
   "Mode": "Default",
@@ -119,12 +119,12 @@
       "OriginalItemSpec": "wwwroot\\client-output\\index.html"
     },
     {
-      "Identity": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\client-output\\js\\app.2203f690.js",
+      "Identity": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\client-output\\js\\app.f2246209.js",
       "SourceId": "backend-app",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\",
       "BasePath": "_content/backend-app",
-      "RelativePath": "client-output/js/app.2203f690.js",
+      "RelativePath": "client-output/js/app.f2246209.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,15 +133,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\client-output\\js\\app.2203f690.js"
+      "OriginalItemSpec": "wwwroot\\client-output\\js\\app.f2246209.js"
     },
     {
-      "Identity": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\client-output\\js\\app.2203f690.js.map",
+      "Identity": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\client-output\\js\\app.f2246209.js.map",
       "SourceId": "backend-app",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\",
       "BasePath": "_content/backend-app",
-      "RelativePath": "client-output/js/app.2203f690.js.map",
+      "RelativePath": "client-output/js/app.f2246209.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -150,7 +150,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\client-output\\js\\app.2203f690.js.map"
+      "OriginalItemSpec": "wwwroot\\client-output\\js\\app.f2246209.js.map"
     },
     {
       "Identity": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\client-output\\js\\chunk-vendors.fc14563b.js",
