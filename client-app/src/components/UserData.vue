@@ -73,7 +73,8 @@
 import { defineComponent } from 'vue';
 
 import axios from 'axios'
-let base_url = 'https://localhost:44339/';//window.location.href;
+//let base_url = 'https://localhost:44339/';
+let base_url = window.location.href;
 const variables = {
     API_URL: base_url + 'api',
     PHOTO_URL: base_url + 'photo',
