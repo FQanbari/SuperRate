@@ -211,23 +211,26 @@ export default defineComponent({
                     post.thumbnail_src = node.thumbnail_src;
                     post.thumbnail_resources = node.thumbnail_resources;
 
-                    if(node.edge_sidecar_to_children.edges.length > 0){
-                        let num = 0;
-                        node.edge_sidecar_to_children.edges.forEach(function (i) {
-                            let n = i.node;
+                    if(node.edge_sidecar_to_children != undefined){
+                        if(node.edge_sidecar_to_children.edges.length > 0){
+                            let num = 0;
+                            node.edge_sidecar_to_children.edges.forEach(function (i) {
+                                let n = i.node;
 
-                            if (n.is_video == true) {                                  
-                                _user_posts.sum_video_view += n.video_view_count;  
-                                num = 1;
+                                if (n.is_video == true) {                                  
+                                    _user_posts.sum_video_view += n.video_view_count;  
+                                    num = 1;
+                                }
+                            
+                            });
+                            if(num == 1){
+                                num = 0;
+                                _user_posts.video_count++;
                             }
-                           
-                        });
-                        if(num == 1){
-                            num = 0;
-                            _user_posts.video_count++;
+                                
                         }
-                             
                     }
+                   
                     switch (node.__typename) {
                         case "GraphVideo":
                             post.video_url = node.video_url;
