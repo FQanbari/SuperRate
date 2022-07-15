@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "o1+Mr1ohFH1dbgXgp5AoW0RypO52KLgAABGDNCZyMpg=",
+  "Hash": "0hJvr4hirPx/GTqIKI3gw8A9Hl6WDmbVHBDJpt08e2A=",
   "Source": "backend-app",
   "BasePath": "_content/backend-app",
   "Mode": "Default",
@@ -119,12 +119,12 @@
       "OriginalItemSpec": "wwwroot\\client-output\\index.html"
     },
     {
-      "Identity": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\client-output\\js\\app.f2246209.js",
+      "Identity": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\client-output\\js\\app.d0944414.js",
       "SourceId": "backend-app",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\",
       "BasePath": "_content/backend-app",
-      "RelativePath": "client-output/js/app.f2246209.js",
+      "RelativePath": "client-output/js/app.d0944414.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,15 +133,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\client-output\\js\\app.f2246209.js"
+      "OriginalItemSpec": "wwwroot\\client-output\\js\\app.d0944414.js"
     },
     {
-      "Identity": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\client-output\\js\\app.f2246209.js.map",
+      "Identity": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\client-output\\js\\app.d0944414.js.map",
       "SourceId": "backend-app",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\",
       "BasePath": "_content/backend-app",
-      "RelativePath": "client-output/js/app.f2246209.js.map",
+      "RelativePath": "client-output/js/app.d0944414.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -150,15 +150,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\client-output\\js\\app.f2246209.js.map"
+      "OriginalItemSpec": "wwwroot\\client-output\\js\\app.d0944414.js.map"
     },
     {
-      "Identity": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\client-output\\js\\chunk-vendors.fc14563b.js",
+      "Identity": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\client-output\\js\\chunk-vendors.f843239e.js",
       "SourceId": "backend-app",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\",
       "BasePath": "_content/backend-app",
-      "RelativePath": "client-output/js/chunk-vendors.fc14563b.js",
+      "RelativePath": "client-output/js/chunk-vendors.f843239e.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -167,15 +167,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\client-output\\js\\chunk-vendors.fc14563b.js"
+      "OriginalItemSpec": "wwwroot\\client-output\\js\\chunk-vendors.f843239e.js"
     },
     {
-      "Identity": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\client-output\\js\\chunk-vendors.fc14563b.js.map",
+      "Identity": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\client-output\\js\\chunk-vendors.f843239e.js.map",
       "SourceId": "backend-app",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\",
       "BasePath": "_content/backend-app",
-      "RelativePath": "client-output/js/chunk-vendors.fc14563b.js.map",
+      "RelativePath": "client-output/js/chunk-vendors.f843239e.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -184,7 +184,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\client-output\\js\\chunk-vendors.fc14563b.js.map"
+      "OriginalItemSpec": "wwwroot\\client-output\\js\\chunk-vendors.f843239e.js.map"
     },
     {
       "Identity": "D:\\Projects\\SuperRate\\backend-app\\wwwroot\\img\\backgfound-img-blure.0562d8fc.jpg",

@@ -73,7 +73,7 @@
 import { defineComponent } from 'vue';
 
 import axios from 'axios'
-let base_url = window.location.href;
+let base_url = 'https://localhost:44339/';//window.location.href;
 const variables = {
     API_URL: base_url + 'api',
     PHOTO_URL: base_url + 'photo',
@@ -133,10 +133,10 @@ export default defineComponent({
                     //     }
                     //     _this.loading = false;
                     // });
-                    _user_posts.avg_likes = (_user_posts.sum_likes / 12) | 0;
-                    _user_posts.avg_comments = (_user_posts.sum_comments / 12) | 0;
-                    _user_posts.avg_view = (_user_posts.sum_video_view / _user_posts.video_count) | 0;
-                    _user_posts.engagement_rate = ((_user_posts.sum_likes + _user_posts.sum_comments) / _this.user.follower).toFixed(2);
+                    _user_posts.avg_likes = Math.ceil(_user_posts.sum_likes / 12) ;
+                    _user_posts.avg_comments = Math.ceil(_user_posts.sum_comments / 12);
+                    _user_posts.avg_view = Math.ceil(_user_posts.sum_video_view / _user_posts.video_count) ;
+                    _user_posts.engagement_rate = Math.ceil(((_user_posts.avg_likes + _user_posts.avg_comments) / _this.user.follower) * 10000)/100;
                     _this.user_posts = _user_posts;
                     _this.loading = false;
                     _this.GetAvatar(instagramUserData.profile_pic_url, instagramUserData.username).then((p) => {
@@ -210,6 +210,23 @@ export default defineComponent({
                     post.thumbnail_src = node.thumbnail_src;
                     post.thumbnail_resources = node.thumbnail_resources;
 
+                    if(node.edge_sidecar_to_children.edges.length > 0){
+                        let num = 0;
+                        node.edge_sidecar_to_children.edges.forEach(function (i) {
+                            let n = i.node;
+
+                            if (n.is_video == true) {                                  
+                                _user_posts.sum_video_view += n.video_view_count;  
+                                num = 1;
+                            }
+                           
+                        });
+                        if(num == 1){
+                            num = 0;
+                            _user_posts.video_count++;
+                        }
+                             
+                    }
                     switch (node.__typename) {
                         case "GraphVideo":
                             post.video_url = node.video_url;
@@ -265,8 +282,7 @@ export default defineComponent({
                 }
                 slide.dimensions = node.dimensions;
                 slide.display_url = node.display_url;
-                slide.is_video = node.is_video;
-
+                slide.is_video = node.is_video;              
 
                 if (node.__typename == "GraphVideo") {
                     slide.video_url = node.video_url;

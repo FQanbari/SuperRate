@@ -78,7 +78,7 @@ namespace backend_app.Controllers
             Image img;
             var webRoot = _env.ContentRootPath;
             var dir = Path.Combine(webRoot, @"wwwroot\img\avatar\");
-            var urlImg = @"/img/avatar/" + $"{param.UserName}.Jpeg";
+            var urlImg = @"http://localhost:44339/wwwroot/img/avatar/" + $"{param.UserName}.Jpeg";
             try
             {
                 var url = Uri.UnescapeDataString(param.UrlImage);
